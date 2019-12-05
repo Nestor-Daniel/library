@@ -20,25 +20,25 @@ class NewBookPanel extends React.Component {
     this.props.updateBook(this.state)
   }
   render() {
-    let saveBtn = this.props.addNew ? <Button variant="success" type='button' onClick={this.saveData}>Save</Button> : null,
-        updateBtn =  this.props.editBook ? <Button variant="success" type='button' onClick={this.updateBook}>Update</Button> : null;
+    let saveBtn = this.props.addNew ? <Button variant="success" size="sm" type='button' onClick={this.saveData}>Save</Button> : null,
+        updateBtn =  this.props.editBook ? <Button variant="success" size="sm" type='button' onClick={this.updateBook}>Update</Button> : null;
     return (
-      <div>
-        <div className = 'bookDetails'>
-          <Form.Label>Name</Form.Label><input type='text' name='name' value={this.state.name} onChange={this.setValue}/>
-        </div>
-        <div>
-          <span>Author</span><input type='text' name='author' value={this.state.author} onChange={this.setValue}/>
-        </div>
-        <div>
-          <span>Year</span><input type='text' name='year' value={this.state.year} onChange={this.setValue}/>
-        </div>
-        <div>
-          <span>Editorial</span><input type='text' name='editorial' value={this.state.editorial} onChange={this.setValue}/>
-        </div>
-        <Button variant="secondary" type='button' onClick={this.props.cancel}>Cancel</Button>
+      <Form className = 'bookDetails'>
+        <Form.Group>
+          <Form.Control size="sm" type='text' placeholder = 'Name' name='name' value={this.state.name} onChange={this.setValue}/>
+        </Form.Group>
+        <Form.Group>
+          <Form.Control size="sm" type='text' placeholder = 'Author' name='author' value={this.state.author} onChange={this.setValue}/>
+        </Form.Group>
+        <Form.Group>
+          <Form.Control size="sm" type='text' placeholder = 'Year' name='year' value={this.state.year} onChange={this.setValue}/>
+        </Form.Group>
+        <Form.Group>
+          <Form.Control size="sm" type='text' placeholder = 'Editorial' name='editorial' value={this.state.editorial} onChange={this.setValue}/>
+        </Form.Group>
+        <Button variant="secondary" size="sm" type='button' onClick={this.props.cancel}>Cancel</Button>
         {saveBtn} {updateBtn}
-      </div>
+      </Form>
     );
   }
 }

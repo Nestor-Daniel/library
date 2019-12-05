@@ -1,5 +1,6 @@
 import React from 'react';
 import BookRow from './BookRow';
+import {Table} from 'react-bootstrap';
 
 class BookList extends React.Component{
   render() {
@@ -9,7 +10,7 @@ class BookList extends React.Component{
       )
     })
     return (
-      <table>
+      <Table striped bordered hover>
         <thead>
         <tr>
           <th>Name</th>
@@ -19,7 +20,7 @@ class BookList extends React.Component{
         </tr>
         </thead>
         <tbody>{books}</tbody>
-      </table>
+      </Table>
     )
   }
 }

@@ -4,9 +4,9 @@ import NewBook from './components/NewBook';
 import BookList from './components/BookList';
 
 let bookList = [], index = 1;
-bookList.push({id: index++, name: 'It', author: 'Stephen King', year: '2020', editorial: 'FCE'});
-bookList.push({id: index++, name: 'The Mist', author: 'Stephen King', year: '2020', editorial: 'FCE'});
-bookList.push({id: index++, name: 'Pet Cemetary', author: 'Stephen King', year: '2020', editorial: 'FCE'});
+bookList.push({id: index++, name: 'It', author: 'Stephen King', year: '1986', editorial: 'FCE'});
+bookList.push({id: index++, name: 'The Mist', author: 'Stephen King', year: '1985', editorial: 'FCE'});
+bookList.push({id: index++, name: 'Pet Cemetary', author: 'Stephen King', year: '1983', editorial: 'FCE'});
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -83,9 +83,9 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <header className="App-header">
+        <h1 className="App-header">
           Library Inventory
-        </header>
+        </h1>
         <NewBook addNewBook = {this.addNewBook} addNew={this.state.addNew} addBook = {this.addBook} updateBook={this.updateBook} editBook={this.state.editBook} cancel = {this.cancel} bookDetails = {this.state.bookDetails}/>
         <BookList bookList = {this.state.bookList} editBook={this.editBookDetails} deleteBook={this.deleteBook}/>
       </div>

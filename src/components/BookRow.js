@@ -24,8 +24,8 @@ class BookRow extends React.Component{
         <td>{this.state.author}</td>
         <td>{this.state.year}</td>
         <td>{this.state.editorial}</td>
-        <td><Button variant="danger" index = {this.state.id} onClick = {this.deleteRow}>Delete</Button></td>
-        <td><Button variant="primary" onClick = {this.editBook}>Edit</Button></td>
+        <td><Button variant="danger" size="sm" index = {this.state.id} onClick = {this.deleteRow}>Delete</Button></td>
+        <td><Button variant="primary" size="sm" onClick = {this.editBook}>Edit</Button></td>
       </tr>
     )
   }

@@ -15,7 +15,7 @@ class NewBook extends React.Component {
     let detailsPanel = this.props.addNew || this.props.editBook ? <NewBookPanel cancel = {this.props.cancel} bookDetails = {this.props.bookDetails} addNewBook={this.props.addNewBook} addNew={this.props.addNew} editBook = {this.props.editBook} updateBook = {this.props.updateBook}/> : null;
     return (
       <div>
-        <Button variant="primary" type='button' onClick={this.props.addBook}>Add Book</Button>
+        <Button variant="primary" size="sm" type='button' onClick={this.props.addBook}>Add Book</Button>
         {detailsPanel}
       </div>
     );

@@ -1,8 +1,12 @@
 .App-header {
   text-align: center;
 }
-.section {
-  width: 200px
+.bookDetails {
+  width: 50%;
+  margin: 5px;
+}
+body{
+  background-color: wheat;
 }
 button {
   margin: 5px;
