@@ -11,10 +11,19 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookList: bookList
+      bookList: bookList,
+      addNew: false,
+      editBook: false,
+      bookDetails: {
+        name: '',
+        author: '',
+        year: '',
+        editorial: '',
+        id: 0
+      }
     }
   }
-  addNewBook = (book) => {
+  addNewBook = book => {
     this.setState(prevState => {
       book.id = index++
       return {
@@ -22,14 +31,63 @@ class App extends React.Component {
       }
     })
   }
+  addBook = () => {
+    this.setState({
+      addNew: true
+    });
+  }
+  deleteBook = index => {
+      this.setState(prevState => {
+        return {
+          bookList: prevState.bookList.filter(item => {
+            return item.id !== index
+          })
+        }
+      })
+  }
+  updateBook = book => {
+    this.setState(prevState => {
+      return {
+        bookList: prevState.bookList.map(item => {
+          if(book.id === item.id) {
+            return book
+          } else {
+            return item
+          }
+        })
+      }
+    })
+    this.cancel();
+  }
+  editBookDetails = book => {
+    this.setState(prevState => {
+      return {
+        editBook: true,
+        bookDetails: book
+      }
+    });
+  }
+  cancel = () => {
+    this.setState({
+      addNew: false,
+      editBook:false,
+      bookDetails: {
+        name: '',
+        author: '',
+        year: '',
+        editorial: '',
+        id: 0
+      }
+    });
+  }
   render () {
     return (
       <div>
         <header className="App-header">
           Library Inventory
         </header>
-        <NewBook addNewBook = {this.addNewBook}/>
-        <BookList bookList = {this.state.bookList}/>
+        <NewBook addNewBook = {this.addNewBook} addNew={this.state.addNew} addBook = {this.addBook} updateBook={this.updateBook} editBook={this.state.editBook} cancel = {this.cancel} bookDetails = {this.state.bookDetails}/>
+        <BookList bookList = {this.state.bookList} editBook={this.editBookDetails} deleteBook={this.deleteBook}/>
       </div>
     );
   }

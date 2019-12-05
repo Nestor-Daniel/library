@@ -1,6 +1,9 @@
 .App-header {
   text-align: center;
 }
+.section {
+  width: 200px
+}
 button {
   margin: 5px;
 }
