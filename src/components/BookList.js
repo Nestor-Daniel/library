@@ -17,9 +17,11 @@ class BookList extends React.Component{
           <th>Author</th>
           <th>Year</th>
           <th>Editorial</th>
+          <th></th>
+          <th></th>
         </tr>
         </thead>
-        <tbody>{books}</tbody>
+        <tbody className='scrollableTable'>{books}</tbody>
       </Table>
     )
   }

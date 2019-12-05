@@ -11,3 +11,7 @@ body{
 button {
   margin: 5px;
 }
+
+.scrollableTable{
+  overflow-y: scroll;
+}

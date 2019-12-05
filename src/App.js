@@ -33,7 +33,15 @@ class App extends React.Component {
   }
   addBook = () => {
     this.setState({
-      addNew: true
+      addNew: true,
+      editBook: false,
+      bookDetails: {
+        name: '',
+        author: '',
+        year: '',
+        editorial: '',
+        id: 0
+      }
     });
   }
   deleteBook = index => {
@@ -44,6 +52,7 @@ class App extends React.Component {
           })
         }
       })
+      this.cancel();
   }
   updateBook = book => {
     this.setState(prevState => {
@@ -63,6 +72,7 @@ class App extends React.Component {
     this.setState(prevState => {
       return {
         editBook: true,
+        addNew: false,
         bookDetails: book
       }
     });

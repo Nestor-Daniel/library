@@ -19,9 +19,14 @@ class NewBookPanel extends React.Component {
   updateBook = () => {
     this.props.updateBook(this.state)
   }
+  componentDidUpdate(prevProps) {
+      if(this.props.bookDetails !== prevProps.bookDetails) {
+        this.setState(this.props.bookDetails)
+      }
+  }
   render() {
-    let saveBtn = this.props.addNew ? <Button variant="success" size="sm" type='button' onClick={this.saveData}>Save</Button> : null,
-        updateBtn =  this.props.editBook ? <Button variant="success" size="sm" type='button' onClick={this.updateBook}>Update</Button> : null;
+    let saveBtn = this.props.addNew ? <Button variant="success" size="sm" type='submit' onClick={this.saveData}>Save</Button> : null,
+        updateBtn =  this.props.editBook ? <Button variant="success" size="sm" type='submit' onClick={this.updateBook}>Update</Button> : null;
     return (
       <Form className = 'bookDetails'>
         <Form.Group>
@@ -36,8 +41,8 @@ class NewBookPanel extends React.Component {
         <Form.Group>
           <Form.Control size="sm" type='text' placeholder = 'Editorial' name='editorial' value={this.state.editorial} onChange={this.setValue}/>
         </Form.Group>
-        <Button variant="secondary" size="sm" type='button' onClick={this.props.cancel}>Cancel</Button>
         {saveBtn} {updateBtn}
+        <Button variant="secondary" size="sm" type='button' onClick={this.props.cancel}>Cancel</Button>
       </Form>
     );
   }
