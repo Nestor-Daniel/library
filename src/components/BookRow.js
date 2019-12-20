@@ -1,5 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 class BookRow extends React.Component{
   constructor(props) {
@@ -24,8 +26,12 @@ class BookRow extends React.Component{
         <td>{this.state.author}</td>
         <td>{this.state.year}</td>
         <td>{this.state.editorial}</td>
-        <td><Button variant="danger" size="sm" index = {this.state.id} onClick = {this.deleteRow}>Delete</Button></td>
-        <td><Button variant="primary" size="sm" onClick = {this.editBook}>Edit</Button></td>
+        <td><Button variant="danger" size="sm" index = {this.state.id} onClick = {this.deleteRow}>
+          <FontAwesomeIcon icon={faTrashAlt} />
+        </Button></td>
+        <td><Button variant="primary" size="sm" onClick = {this.editBook}>
+          <FontAwesomeIcon icon={faEdit} />
+        </Button></td>
       </tr>
     )
   }

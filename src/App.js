@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 import NewBook from './components/NewBook';
 import BookList from './components/BookList';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+library.add(fab);
 
 let bookList = [], index = 1;
 bookList.push({id: index++, name: 'It', author: 'Stephen King', year: '1986', editorial: 'FCE'});
